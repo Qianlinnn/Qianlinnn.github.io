@@ -116,7 +116,7 @@ stars
 * 一个矩阵X， 尺寸大小为|D|*|Y|， 行是语料库中的文档，列是V(目标单词)里面的单词
 * 对每一个文档统计目标单词都共出现了多少次
 
-![11]()
+![11](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/11.png)
 
 * X同样可以通过加入所有的文档中one-hot vectors然后转置得到
 **矩阵的第一行应该是文本里面的context word，然后第一列是目标文字，这样形成的就是01向量**
