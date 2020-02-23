@@ -37,26 +37,26 @@
 ## 向量和向量空间
 * 一个向量x是d个元素(坐标)的一个一维数组, 可以通过index来标识
 
-    ![1]()
+    ![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/1.png)
     
 * 矩阵X，大小为n * d: 是n个向量的集合，也被称为向量空间
 
-    ![2]()
+    ![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/2.png)
     
 * Example:
 
-    ![3]()
+    ![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/3.png)
     
 ## Vector similarity(向量相似度)
    
-   ![4]()
+   ![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/4.png)
 
-**Note: x1在此处的公式里是行向量
+**Note: x1在此处的公式里是行向量**
 
 ## Vector Space of Text(文本的向量空间)
 * 相似度坐标图如下图所示
   
-  ![5]()
+  ![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/5.png)
 
 ## 文本向量表示的必要性
 * 对单词的含义进行编码，以便我们可以计算单词之间的语义相似度。 例如。 篮球与足球或食谱更相似吗？
@@ -77,11 +77,11 @@ stars
 [分词_极客时间](https://easyai.tech/ai-definition/tokenization/)
 * Tokenisation 是为了从原文当中获得不同的分词组合。 简单形式：空白行划分词，或者使用正则表达式
 
-![6]()
+![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/6.png)
 
 * 其他预处理步骤也许遵循：小写，标点符号/数字/停止/不频繁的单词删除和词干
 
-![7]()
+![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/7.png)
 
 ## Decide what/how do you want to represent: Obtain a  vocabulary(确定您想表达什么/如何表达：获取词汇)
 
@@ -92,11 +92,11 @@ stars
 
 ## Words: Discrete vectors(离散型向量)
 
-![8]()
+![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/8.png)
 
 ## Problems with discrete vectors(离散型向量的问题)
 
-![9]()
+![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/9.png)
 
 * 由上可算出杏和凤梨的cos相似度为0，但实际上二者是有联系的
 
@@ -107,7 +107,7 @@ stars
 * 在一个大规模文本的语料库里计算频率
 * 通常目标文字和文本文字词汇表是相同的，从而组成了一个方阵
 
-![10]()
+![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/10.png)
 
 **图里的数据只是假设做举例用，并不能和上面的文本一一对应**
 
@@ -125,19 +125,19 @@ stars
 * 常用词(文章，代词等)在文本文字中占主导地位，但它们并没有提供丰富的内容
 * 举例说明：如果把词the加进文本文字里，它往往是最多的那个名词
 
-![12]()
+![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/12.png)
 *这个问题也出现在document-word 矩阵中，解决办法是对这些向量分配权重
 
 ## Weighting the Word-Word Matrix: Distance discount(根据离某一个词的距离远近来分配权重)
 * 根据文本文字与目标词的距离来分配权重，越远的单词，权重越小
     * 对一个范围±k， 在每一个位置上的文本文字乘以 (k-distance)/k, e.g. for k = 3
     
-    ![13]() 
+    ![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/13.png) 
 
 ## weighting the word-word matrix: pointwise mutual information(PMI)逐点相互信息
 * PMI: 两个单词w_i 和 w_j 一起出现与相当于独立出现的频率
     
-    ![14]()
+    ![14](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/14.png)
 **其中#(.)代表计数|D|代表的是目标词与问本次成对的数量**
 * 正的值能够量化相关性，使用PMI值替代了计数
 * 而负的PMI值通常被忽略
@@ -154,14 +154,14 @@ stars
 * 一种查找数据集最重要维度的方法，这些维度通过将矩阵分解为潜在因子来使数据的变化最大
 * truncated-SVD公式为：
     
-    ![15]()
+    ![15](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/15.png)
 * 近似是好的，通过学习低维潜在空间，利用冗余来消除噪声
 [奇异值分解教程](https://web.mit.edu/be.400/www/SVD/Singular_Value_Decomposition.htm)
 
 ### Singular Value Decomposition on Word-Word matrix(在文字对句子矩阵进行奇异值分解)
 图示如下:
 
-![16]()
+![16](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/16.png)
 
 ### Singular Value Decomposition on Document-Word matrix(文字对文档矩阵的奇异值分解)
 
@@ -170,7 +170,7 @@ stars
 * V^(n*k)代表着目标文字插入项
 * 可以得到一个文档x_new的心的插入项u_new,通过将文档的计数向量投影到现在空间：
 
-![17]()
+![17](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week1/17.png)
 
 ## Evaluation: Word Vectors(评估： 文字向量)
 * 固有的特性：
