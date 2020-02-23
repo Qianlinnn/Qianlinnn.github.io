@@ -117,5 +117,88 @@
 
 *log 是自然对数
 
+## Categorical Cross-Entropy loss(分类交叉熵损失)
+* 要扩展为多类，我们只需要计算真实类y_c的负对数似然性
+
+![1]()
+
+* 其他所有类的损失为0
+* y_c要么是0要么是1， c取(1,..,k)得值，即类的个数
+
+    
+## how to adjust the weights(如何调整权重)
+
+* 数值优化是研究如何改变w来最大或者最小化函数f(w)的值得研究领域
+* 在我们的案例中(还有很多在机器学习)
+   ![2]()
+   
+## a simpler case
+
+* 二元逻辑回归每一个特征都有一个参数，因此它有很多参数
+* a simpler case:
+        
+  ![3]()
+    
+## Gradient-based Optimisation(基于梯度的优化)
+
+* 我们应该在选择点的时候如何使用f(x) = x^2这个情况
+* 对参数x的梯度表示为  
+
+  ![4]()
+
+* 当在x_k 评估时：
+    * sign(∇x f (x)) 告诉我们如果增加x，f(x)也会增加或者减少
+    * |∇x f (x)| 告诉我们增加或者减少的速度有多块
+* 如果在x_k = 0的时候，意味着达到了最小值
+
+![5]()
+convex 凸的
+
+## Gradient of the Loss wrt the weights(wrt means with respect to)
+*  对参数向量w相关的损耗的梯度能被分解为对每个参数w_k的偏导数
+
+![6]()
+
+[关于推导梯度的更多细节](https://ashm8206.github.io/2017/10/25/Derivative-of-logistic-Regression.html)
+
+## Stochastic Gradient Descent(SGD)随机梯度下降
+
+![7]()
+
+## SGD for multi-class
+* 只能为正确类别的权重计算梯度
+* 像如同二进制那样计算梯度
+
+## other Gradient Descent Optimisers
+
+* Gradient Descent: 对整个训练集梯度，这个梯度是相关参数的损失函数的梯度
+
+* Batch Gradient Descent: 针对训练集中的小部分计算相关参数的损失函数的梯度
+
+* [更多梯度下降的知识点](https://ruder.io/optimizing-gradient-descent/)
+
+## Regularisation(正则化)
+
+* 任何有很多特征的模型都容易过拟合训练数据： 训练精度高，测试准确度低
+
+* 通过加一个正则化器来避免它：
+    
+* L_reg = L + αR(w):
+
+![8]()
+
+* α是正则强度
+* 直观的，我们更喜欢较小的参数值， 而不用更新太多次
+
+## Evaluation
+
+* 评价分类器的标准方式为：
+
+![9]()
+
+* 当一类比另一类更常见时，预测它总是可以提供很高的准确性。
+
+![10]()
+
 
 
