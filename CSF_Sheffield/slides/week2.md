@@ -12,7 +12,7 @@ Cryptography is an enabling technology
 
 ## A general cryptographic schema
 
-![1]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/1.png)
 
 encryption: 加密  decryption:解密
 * Symmetric encryption(对称加密)
@@ -38,7 +38,7 @@ encryption: 加密  decryption:解密
     * 对每一个d ∈ K, D_d代表了从C到M的双射函数(一一对应)
         * D_d是一个解密函数
     * 应用E_e(or D_d)的过程叫做加密和解密
-* 加密方案(密码)是由一组集合{E_e|e ∈ K}和对应的集合{D_d|d ∈ K}例如，对每一个e ∈ K,都有一个 d ∈ K ,它们的关系是![2]()
+* 加密方案(密码)是由一组集合{E_e|e ∈ K}和对应的集合{D_d|d ∈ K}例如，对每一个e ∈ K,都有一个 d ∈ K ,它们的关系是![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/2.png)
 如：
           𝐷_𝑑 = (𝐸_𝑒(𝑚)) = 𝑚, for all 𝑚 ∈ *M*
 
@@ -46,7 +46,7 @@ encryption: 加密  decryption:解密
         * 它们可以是相同的(如 对称加密模式的对称密钥)
     * 构建一个加密模式要求一个固定的消息空间*M*, 一个密文空间*C*，和一个钥匙空间*K*, 以及加密转换{𝐸_𝑒|𝑒 ∈ 𝐾}和一个对应的解密转换{𝐷_𝑑|𝑑 ∈ 𝐾} 
     
-    ![3]()
+    ![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/3.png)
  
 ## Codes
 * 代表完整信息的字符串符号
@@ -81,7 +81,7 @@ encryption: 加密  decryption:解密
    * Trivial to crack using frequency analysis(letters, diagraphs,etc.)使用频率分析（字母，有向图等）可轻松破解
    * 英语的频率基于数据挖掘书籍/文章具体频率如下图所示(意思是我们可以统计一本书里的各个单词的出现频率来根据这个表来从密文逆推出明文)
     
-   ![4]()   
+   ![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/4.png)   
    
    * 很容易应用，除了一些短的，非典型的文本
    * 需要更多复杂性来掩盖统计规律(sophistication 复杂性)
@@ -93,12 +93,12 @@ encryption: 加密  decryption:解密
 * 多字母替代密码是在字母表A上具有块长度𝑡的块密码，其中：
     * 密钥空间K是由A上所有排列的集合 t排列组合而成
     * 加密是通过key e = (p_1,...,p_t)l来加密m = m_1...m_t，公式表示为E_e(m) = p_1(m1)...p_t(m_t)
-    * 对e的解密密钥是 ![5]()
+    * 对e的解密密钥是 ![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/5.png)
 
 * Vigenere Cipher [维吉尼亚密码](https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81)
     * 密钥由有序的数字e = e_1,...,e_t给出：其中：
         
-        ![6]()
+        ![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/6.png)
       在一个大小为n的字母表上定义一个排列
       
     * Example: English(n=26), with k = 3, 7, 10
@@ -115,7 +115,7 @@ encryption: 加密  decryption:解密
     * 一次性密码本是一个定义在{0，1}得密码
 * 一个信息m_1...m_n 是被一个二进制密钥字符串k_1...k_n加密的
    
-   ![7]()
+   ![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/7.png)
    
     Example： 
         
@@ -136,7 +136,7 @@ encryption: 加密  decryption:解密
 * 所有这些转换的集合称为换位密码
 * 为了解密 c = c_1 c_2 ... c_t计算
 
-    ![8]()
+    ![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/8.png)
 
 其中d是逆排列
 * 字母是不变的
@@ -145,7 +145,7 @@ encryption: 加密  decryption:解密
     
 * Example
   
-  ![9]()
+  ![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/9.png)
  
  该示例中C是加密文字，图表是明文，加密方法是将明文按照列的方向由左向右进行抄写。解密方法就是知晓排列模式，按从左到右的顺序往下读
  下面的密码棒同理，按照上面所述的方法去左右到右解读，翻译为：这个密码棒(scytale)是换位密码
@@ -171,7 +171,7 @@ encryption: 加密  decryption:解密
     "S-Boxes"混淆了输入位
     "P-Boxes"通过S-Box输入分散了位置
     
-  ![10]()
+  ![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/10.png)
   
 * Substitution:Each binary bit of the ciphertext should depend on several parts of the key, obscuring the connections between the two
   密文的每个二进制位应取决于密钥的几个部分，从而使两者之间的连接更加模糊
@@ -228,7 +228,7 @@ encryption: 加密  decryption:解密
 
 * Remember Vigenere cipher维吉尼亚密码(substitution)
 
-![11]()
+![11](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/11.png)
 
 ### Block ciphers [区块加密法/分组加密](https://zh.wikipedia.org/wiki/%E5%88%86%E7%BB%84%E5%AF%86%E7%A0%81)
 * A block cipher is an encryption scheme that breaks up the plaintext message into strings (blocks) of a fixed length t and encrypts one block at a time
@@ -244,7 +244,7 @@ encryption: 加密  decryption:解密
 * Different design strategies(structures) exists
   不同的设计策略(结构)存在
  
- ![12]()
+ ![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/12.png)
  
 * 为区块加密设计结构
     * Feistel Network[费斯妥密码具体见构造细节部分](https://zh.wikipedia.org/wiki/%E8%B4%B9%E6%96%AF%E5%A6%A5%E5%AF%86%E7%A0%81)
@@ -256,11 +256,11 @@ encryption: 加密  decryption:解密
     
 费斯妥密码如图
 
-![13]()
+![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/13.png)
 
 SPN
 
-![14]()
+![14](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/14.png)
 
 ## Data Encryption Standard(DES)[数据加密标准](https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86%E6%A0%87%E5%87%86)
 * 1993 NIST Standard
@@ -277,7 +277,7 @@ SPN
     
 **Note: [TDES三重数据加密法详细说明](https://zh.wikipedia.org/wiki/3DES)**
       
-![15]()
+![15](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/15.png)
 
 Half Block一半块(32位)， Subkey子密钥(48位)
 
@@ -300,19 +300,84 @@ Cryptography, p278
 * DES不应用于新应用程序（至少应为TDES）
 * 继承者 Advanced Encryption Standard(AES)
     
-    
+## Advanced Encryption Standard(AES) [高级加密标准](https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E5%8A%A0%E5%AF%86%E6%A0%87%E5%87%86)
+* SPN(置换排列网络)
+* 128-bit block size, 128/192/256-bit key sizes(key scheduling)
 
-    
+   AES的区块长度固定为128比特，密钥长度可以是128，192或256比特
+* NIST Standard cipher for encryption(2001)   
+  美国国家标准与技术研究院于2001年发布的加密标准密码
 
+* Widely-used in many applications
+  在许多应用广泛使用
+  
+![17]()
 
+## Lightweight cipher example: present cipher(轻量级密码示例: x现在的密码)
+* SPN
+* 64-bit block size, 80/128-bit key sizes 区块长度64比特，密钥生成器长度是80/128
+* ISO standard lightweight cipher for  encryption 用于加密的ISO标准轻量级密码
 
+![18]()
 
-
+## Cryptographic Hashes: Requirements 加密哈希： 要求
+* Motivation： Create a data "fingerprint"
+  动机： 创造一个数据指纹
+* A hash function h(x)( in the general sense) has the properties:
+  一个哈希函数(一般意义)具有以下性质
+    * Compression: h maps an input x of an arbitrary bit length to an output h(x) of fixed bit length n
       
+      压缩： h将任意位长的输入x映射到固定位长的输出h(x)
+    * Polynomial time computable
+      
+      多项式时间可计算
+* Example (longitudinal redundancy check):
+  
+* 示例（纵向冗余检查）：  
+
+     * Given 𝑚𝑚 blocks of 𝑛-bit input 𝑏_1, … , 𝑏_𝑚, form the 𝑛 -bit checksum 𝑐 from the bitwise xor of
+every block, i.e., (for 1 ≤ 𝑖 ≤ 𝑛)
+
+     给定n位输入b1,...bn的代码块m个， 从每个块的按位异或形成n位效验之和c
+      
+    ![19]()
     
+     * Cryptographic techniques can be seen as a refinement of checksum techniques to  handle an active forger 
+       加密技术可以看作是对校验和技术的改进，可以处理活跃的伪造者
+
+* ℎ(𝑥) is a cryptographic hash function h(x)是一个加密的哈希函数
+    * one-way(or pre-image resistant)单向的
+        * 给定一个y，想要通过h(x) = y来反向推出x是很难的
+    * 同样:
+        * 2nd-premiage resistance
+            * 在计算上不可能找到与任何指定输入具有相同输出的第二个输入 如给定了x, 那么不存在 x* != x， 使得 h(x*) != h(x)
+            
+        * Collision resistance(耐碰撞)
+            * For a given message  x 1 it is hard to find a second message  x2≠x1 with  H(x1)=H(x2) .
+    * Hash value also called message digest or modification detection code  (abbreviated as MDC)
+      哈希值也称为消息摘要或修改检测代码  
+## Application: Message Integrity(应用程序， 消息完整性)
+   * 消息或者数据完整性是指自该数据被授权方创建，转移或者存储后， 该数据不能被未经授权的方式修改   
+   * 消息完整性：修改检测代码提供可检查的指纹
+        * 需要二次原像抗性和经过身份验证的MDC
+        * Typical application: Signed hashes
+
+## Application: Password Files(应用： 密码文件)
+   * 对密码p， 在密码文件里存储了h(p)
+   * 要求只有一个原像抗性
+   * 经常于其他salts 组合，保存为(s, h(s,p))
   
-  
-  
+## Constructing a Cryptographic Hash Function
+* 可以使用块链接技术（Rabin 1978）
+    * 将信息分成固定大小的块,b_1,...,b_n
+    * 使用对称的加密算法 e.g. DES
+                        
+    ![20]()
+
+* 现代算法（例如SHA-1 / 2/3，MD4，MD5等）更加复杂，并使用专门设计的功能
+    * 许多冲突结果（例如Crypto 2004）动摇了对其性能的信心
+    * 基于哈希的现代应用程序仍然“看起来”安全，例如，尚无前映像攻击（SHA-1除外）
+    
     
     
   
