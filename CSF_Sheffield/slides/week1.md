@@ -1,6 +1,6 @@
 ## What's the problem if authenticate without a password using "SQL injection"
 
-![1]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week1/1.png)
 
 * 1 Username = '
     * 会弹出提示Syntax error message
@@ -13,7 +13,7 @@
     
 * Example 1： 
  
-![2]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week1/2.png)
     主要输入值用的是最后一个VALUES('student_name')
     
     如： student_name = Alice
@@ -21,7 +21,7 @@
     
 * Example 2：
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week1/3.png)
 
 * 该代码的意思是，将Robert插入students table中，然后删除students table
 
@@ -123,7 +123,7 @@
 * policy Enforcement point(PEP) 协议执行点
 * policy Decision point(PDP) 协议决定点
 * Authentication not shown
-![4](
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week1/4.png)
 
 ## 协议VS模型 Policies vs Models
 * 一份安全协议将会定义什么是被允许或者禁止的
@@ -151,7 +151,9 @@
         * 针对每一个主体对目标物体的权限(s,o) 
         * 一个关系 S * O * P
 * 举例：
-    ![5]()
+
+    ![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week1/5.png)
+
 * Alice, Bob, Charlie are subjects
 * File 1, File 2, File 3 are objects
 * Matrix entries are set of privileges (rights)
@@ -172,7 +174,8 @@
     * 为用户分配角色（根据他们的职责）Assign users to roles (based on their responsibilities)
     * 为每个角色分配一组权限 Assign a set of permissions to each role
 * RBAC通过引入角色来使用户和权限脱钩
-    ![6]()
+
+    ![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week1/6.png)
     
 ## Beyond RBAC
 ### RBAC要考虑的问题：
