@@ -281,7 +281,7 @@ SPN
 
 Half Block一半块(32位)， Subkey子密钥(48位)
 
-![16]()
+![16](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/16.png)
 
 ## Security of DES
 * 人们长期以来一直对DES的安全性提出质疑。 人们一直在猜测密钥长度，迭代次数和S盒的设计。 S盒特别神秘-所有这些常量，没有任何明显的原因或目的。 尽管IBM声称内部工作是经过17年的密集密码分析工作的结果，但有些人还是担心NSA(国家安全局)在该算法中嵌入了一个活板门，因此他们将有一种轻松的方式来解密消息。 Bruce Schneier, Applied
@@ -311,14 +311,14 @@ Cryptography, p278
 * Widely-used in many applications
   在许多应用广泛使用
   
-![17]()
+![17](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/17.png)
 
 ## Lightweight cipher example: present cipher(轻量级密码示例: x现在的密码)
 * SPN
 * 64-bit block size, 80/128-bit key sizes 区块长度64比特，密钥生成器长度是80/128
 * ISO standard lightweight cipher for  encryption 用于加密的ISO标准轻量级密码
 
-![18]()
+![18](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/18.png)
 
 ## Cryptographic Hashes: Requirements 加密哈希： 要求
 * Motivation： Create a data "fingerprint"
@@ -340,7 +340,7 @@ every block, i.e., (for 1 ≤ 𝑖 ≤ 𝑛)
 
      给定n位输入b1,...bn的代码块m个， 从每个块的按位异或形成n位效验之和c
       
-    ![19]()
+    ![19](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/19.png)
     
      * Cryptographic techniques can be seen as a refinement of checksum techniques to  handle an active forger 
        加密技术可以看作是对校验和技术的改进，可以处理活跃的伪造者
@@ -372,7 +372,7 @@ every block, i.e., (for 1 ≤ 𝑖 ≤ 𝑛)
     * 将信息分成固定大小的块,b_1,...,b_n
     * 使用对称的加密算法 e.g. DES
                         
-    ![20]()
+    ![20](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/20.png)
 
 * 现代算法（例如SHA-1 / 2/3，MD4，MD5等）更加复杂，并使用专门设计的功能
     * 许多冲突结果（例如Crypto 2004）动摇了对其性能的信心
