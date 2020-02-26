@@ -23,7 +23,7 @@
 
 ## What is collaborative filtering?
 
-![1]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/1.png)
 
 * 根据过往的记录进行信息过滤
 
@@ -45,7 +45,7 @@
 
 * 针对一个用户历史在社区的评分偏好数据来预测他对一件没有评分过的商品的喜好程度
 
-  ![2]()
+  ![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/2.png)
 
 * 维护一个数据库，该数据库里有许多用户对各种各样物品的评分
 
@@ -108,7 +108,7 @@
 
 ## Prediction Accuracy
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/3.png)
 
 ## Challenge - Cold Start
 
@@ -131,7 +131,7 @@
 * Scalability
   * 上百万的用户和物品
 
-![4]()
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/4.png)
 
 # Matrix Factorisation for Collaborative Filtering(协同过滤的矩阵分解)
 
@@ -148,7 +148,7 @@
   * 一维代表用户
   * 其他维度代表物品
 
-  ![5]()
+  ![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/5.png)
 
 ## Two Data types(两种数据类型）
 
@@ -176,7 +176,7 @@
 
 * 用户u对商品i的评分通常用r_(ui)来表示，有以下公式：
 
-  ![6]()
+  ![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/6.png)
 
 * 主要的挑战是计算每个物品的因素向量(q_i)和客户向量(p_u)之间的映射
 
@@ -194,7 +194,7 @@
 
 * 我们可以简单的计算q的i行和p的u列的点积
 
-  ![7]()
+  ![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/7.png)
 
 ## 通过MF实现的推荐系统的挑战
 
@@ -216,7 +216,7 @@
   * 避免通过正则化模型过度拟合
   * 要学习因子向量（pu和qi），系统将已知等级的正则化平方误差最小化
 
-  ![8]()
+  ![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/8.png)
 
   * 目标是通过预测未来未知评分的方式来归纳之前的评分
   * 常数控制正则化的程度(the constant controls the extent of regularisation)
@@ -228,7 +228,7 @@
 * 交替最小二乘法再固定的q_i和固定的p_u之间旋转
 * 当所有的p_u都固定后，系统会通过解决最小二乘法的问题来重新计算q_i
 
-![9]()
+![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/9.png)
 
 * 上面两句翻译为：
   * 我们可以将矩阵P固定为某个矩阵，这样最小化问题就等于
