@@ -70,7 +70,7 @@
 
  * Scalar ratings:(标量等级)
    	* Numerical scales
-      	* 1-5,1-7, etc
+    * 1-5,1-7, etc
 * Binary ratings:(二元评分)
   * 同意或者不同意，好或者坏,etc
 * Unary ratings 一元评级
@@ -113,7 +113,7 @@
 ## Challenge - Cold Start
 
 * 新用户
-  * 评论初始的物品
+  * 评分初始的物品
   * 没有私人定制的推荐
   * 需要描述口味
   * 人口统计信息
@@ -149,6 +149,10 @@
   * 其他维度代表物品
 
   ![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/5.png)
+  
+  * 此处j已经被固定，所以豁免的λ后的参数只有一个
+
+
 
 ## Two Data types(两种数据类型）
 
@@ -200,7 +204,7 @@
 
 * 用户项目评分矩阵中的稀疏性导致
 * 当矩阵的数据不完整时，传统的SVD未定义
-* 粗心地只解决相对较少的已知条目很容易过度拟合
+* 粗心地只处理相对较少的已知条目很容易过度拟合
 
 ## 如何填补缺失值
 
@@ -218,13 +222,14 @@
 
   ![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week3/8.png)
 
+  * 该公式上面左边部分是计算误差，即让误差最小化，右边部分则是防止过拟合， ||q|| 代表的是范数
   * 目标是通过预测未来未知评分的方式来归纳之前的评分
   * 常数控制正则化的程度(the constant controls the extent of regularisation)
 
 ## Alternating Least Squares(交替最小二乘法)
 
 * 因为q_i和p_u都是未知数，所以对象函数不是凸的
-* 但是，如果固定了未知数之一，则优化问题将变成二次方程，并且可以通过最佳方式解决
+* 但是，如果固定了未知数之一，则优化问题将变成二次方程，并且可以通过最佳方式解决，不同参数交替进行固定来预测
 * 交替最小二乘法再固定的q_i和固定的p_u之间旋转
 * 当所有的p_u都固定后，系统会通过解决最小二乘法的问题来重新计算q_i
 
@@ -246,7 +251,7 @@
 * alpha：适用于ALS的隐式反馈变量的参数，用于控制偏好观察中的基线置信度（默认为1.0）
 * nonnegative: 是否对最小二乘使用非负约束（默认为false）
 
-## Blocked IMplementation of ALS(ALS的块状话实施)
+## Blocked Implementation of ALS(ALS的块状化实施)
 
 * 将两组因素（“用户”和“商品”）分组进块
 * 通过仅在每次迭代中将每个用户向量的一个副本发送到每个商品块，并且仅针对需要该用户特征向量的商品块，来减少通信
