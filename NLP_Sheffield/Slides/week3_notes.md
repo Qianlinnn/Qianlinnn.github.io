@@ -11,19 +11,19 @@
 
 * 训练数据经常是一个很大的句子集合x^m 里面有单词x_n:
 
-![]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/1.png)
 
 ## Calculate sentence probabilities 计算句子概率
 
 我们想要学习一个模型，这个模型能够返回一个没见过的句子x的概率
 
-![]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/2.png)
 
 ## Unigram language model 一元语言模型
 
 * 计算整个语料库中每个单词出现在句子x中的概率：
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/3.png)
 
 **Note: "s" 可能也被算进去了**
 
@@ -31,7 +31,7 @@
 
 ## What could go wrong?
 
-![]()
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/4.png)
 
 * 最有可能的字是"<s>" (3/3 = 1)
 * 最有可能的单字句子是"<s>"
@@ -43,13 +43,13 @@
 
 * 我们假设每个单词都依赖于先前所有单词：
 
-![5]()
+![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/5.png)
 
 哪里错了？
 
 ## 最大似然估计
 
-![6]()
+![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/6.png)
 
 * 当我们以更多的单词为条件时，计数变得稀疏
 
@@ -57,23 +57,23 @@
 
 * 假设选择一个单词只取决于在它之前的那一个单词
 
-![7]()
+![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/7.png)
 
 ### From counts to probabilities: 从计数到概率
 
-![8]()
+![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/8.png)
 
 * 从二元数计数矩阵中，通过将每个像小块除以其行的合适的字母组合计数来计算概率。
 
-![9]()
+![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/9.png)
 
 ## Example: Bigram language model
 
-![10]()
+![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/10.png)
 
 ## Longer contexts(N-gram LMs)
 
-![11]()
+![11](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/11.png)
 
 * 文本越长：the more likely to capture long-range dependencies更可能捕获长期依赖
   * “I saw a tiger that was really very...” fierce or talkative
@@ -108,7 +108,7 @@
 
 ## Intrinsic evaluation: Perplexity:困惑度： （如果每个时间步都根据语言模型计算的概率分布随机挑词，那么平均情况下，挑多少个词才能挑到正确的那个）
 
-![12]()
+![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/12.png)
 
 
 
@@ -121,7 +121,7 @@ Answer: **There is more context to predict the next word!**
 
 ## 困惑度的问题
 
-![13]()
+![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/13.png)
 
 * 并不总是与应用程序性能相关
 * 无法评估非概率语言模型
@@ -142,15 +142,15 @@ Answer: **There is more context to predict the next word!**
 * 他们会被赋值为出现可能性为0
 * Smoothing or discounting能挽救：从富人哪里偷并给穷人
 
-![14]()
+![14](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/14.png)
 
 ## Add-1 Smoothing 加-1平滑处理
 
 * Add-1 smoothing加1给了所有的bigram计数
 
-![15]()
+![15](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/15.png)
 
-* 假装我们见过所有的bigram词一次
+* 假装我们见过所有的bigram词一次 |V|指的是vocabulary size
 
 ## Add-k Smoothing
 
@@ -172,7 +172,7 @@ Answer: **There is more context to predict the next word!**
 
 对一个trigram语言模型
 
-![17]()
+![17](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/17.png)
 
 * unigram，bigram和trigram概率的加权平均值
 * 我们如何选择λs的值？ 在开发集上进行参数调整！
@@ -181,11 +181,11 @@ Answer: **There is more context to predict the next word!**
 
 Backoff: 基本思想是若某个n-gram并没有在语料中找到，那么就计算(n-1)gram的count值作为该ngram的估计。然后引入 ![[公式]](https://www.zhihu.com/equation?tex=%5Clambda) 参数，将估计值与n-gram的原始值做融合.
 
-![18]()
+![18](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/18.png)
 
 没有！ 是否必须对概率为P的情况折现概率？ 并将质量分配给较短的文本
 
-![19]()
+![19](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/19.png)
 
 β是(n-k)-gram的剩余概率质量
 
@@ -195,7 +195,7 @@ Backoff: 基本思想是若某个n-gram并没有在语料中找到，那么就�
 * 您可以在给定训练里预测保持（测试）设置的平均数吗？
 * Testing counts = training counts - 0.75
 
-![20]()
+![20](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/20.png)
 
 * d = 0.75, 对λ进行调整，以确保我们具有有效的概率分布
 
@@ -212,18 +212,20 @@ Backoff: 基本思想是若某个n-gram并没有在语料中找到，那么就�
 * 我们真的需要概率吗？ 估计额外的参数需要花费大量语料。
 * 如果scores是充足的，那么stupid backoff工作的更好
 
-![21]()
+![21](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/21.png)
 
 * Empirically found that λ = 0.4 works well 根据经验发现λ= 0.4效果很好
 * They called it stupid because they didn’t expect it to work well! 他们称其为“愚蠢”是因为他们没想到它能很好地工作！
 
 ## Syntax-based language models: 基于语法的语言模型
 
-![22]()
+![
+
+](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/22.png)
 
 ## More data defeats smarter models
 
-![23]()
+![23](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/23.png)
 
 
 
