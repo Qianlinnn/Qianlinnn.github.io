@@ -30,11 +30,11 @@
   * E_e组成了一个单向陷门函数，陷门是d
 * 公钥e能当作公开信息
 
-![1]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/1.png)
 
 * 当爱丽丝（Alice）可以确定授权信息e时，公钥加密为她提供了一个向鲍勃（Bob）保密的渠道
 
-![2]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/2.png)
 
 ## 非对称（公钥）加密
 
@@ -85,7 +85,7 @@
 * a, b ∈ N是相互互为质数得如果 gcd(a,b) = 1
 * GCD能用欧几得里算法很快算出
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/3.png)
 
 ## 数论： 逆
 
@@ -101,7 +101,7 @@
 
 * 举例： 4 ^(-1) mod 7
 
-  ![4]()
+  ![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/4.png)
 
 ## RSA 算法
 
@@ -121,7 +121,7 @@
 
 ## RSA example
 
-![5]()
+![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/5.png)
 
 
 
@@ -232,7 +232,7 @@
 
 ## 物理攻击
 
-![6]()
+![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/6.png)
 
 ## probing(探测)
 
@@ -254,7 +254,7 @@
 * Timing 时间安排
 * Electromagnetic emission: EM probes 电磁发射：电磁探针
 
-![7]()
+![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week3/7.png)
 
 * Power Analysis
 

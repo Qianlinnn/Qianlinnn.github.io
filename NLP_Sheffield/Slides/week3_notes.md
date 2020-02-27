@@ -156,7 +156,7 @@ Answer: **There is more context to predict the next word!**
 
 * Add-1 分配太多的概率质量给未见过的bigram组合，最好用add-k, k<1
 
-![16]()
+![16](https://github.com/Qianlinnn/personal-study-zone/raw/master/NLP_Sheffield/img/week3/16.png)
 
 * **k是一个超参数：在开发集上选择最佳值！**
 
