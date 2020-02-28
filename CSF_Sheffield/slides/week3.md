@@ -296,7 +296,12 @@
 
 
 
+[GCD最大公约数递归定理的证明](https://blog.csdn.net/mowayao/article/details/26944181)
 
+其中课后练习题答案练习题第二题的第一小问可以参考这个答案
 
+a|b 代表b能被a整除
+
+[RSA算法原理](https://www.zhihu.com/question/33645891/answer/57512229)
 
 
