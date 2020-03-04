@@ -4,7 +4,7 @@
 
 * 查找对象组，以使一组中的对象彼此相似（或相关），而与其他组中的对象不同（或不相关）
 
-  ![1]()
+  ![1](https://github.com/Qianlinnn/personal-study-zone/blob/master/SML_Sheffield/img/week4/1.png)
 
 ## Cluster Analysis(聚类分析)
 
@@ -64,13 +64,13 @@
   * 一组嵌套的集群，组织成一个层次树
   * 树中的每个节点（集群）（叶节点除外）都是其子节点（子集群）的并集，树的根是包含所有对象的集群
 
-![2]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/2.png)
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/3.png)
 
 ## Hierarchical vs Partitional Clustering
 
-![4]()
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/4.png)
 
 
 
@@ -84,7 +84,7 @@
   * 群集是一组对象，因此群集中的对象比群集的“中心”更靠近（更相似），而不是其他任何群集的中心
   * 群集的中心通常是质心，群集中所有点的平均值或质心（质心不重要（例如，分类的）时），它是群集中最具“代表性”的点
 
-![5]()
+![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/5.png)
 
 ## Types of Clusters: Density-Based  群集类型：基于密度
 
@@ -92,7 +92,7 @@
   * 聚类是点的密集区域，由低密度区域与其他高密度区域隔开
   * 当簇不规则或相互缠绕，并且有杂音和异常值时使用
 
-![6]()
+![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/6.png)
 
 ## K-means Clustering K均值聚类
 
@@ -111,7 +111,7 @@
 
 * 对于群集“中心”的集合C = {c1，c2，…，ck}，定义平方误差和 Sum of Squared Error（SSE）为：
 
-  ![7]()
+  ![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/7.png)
 
   d（x，C）：x到C中最近的中心的距离
 
@@ -128,7 +128,7 @@
 
 ## K-means Clustering: Example
 
-![8]()
+![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/8.png)
 
 ## Lloyd Algorithm 劳埃德算法 [劳埃德算法和k means算法](https://www.cnblogs.com/zhxuxu/p/9860654.html)
 
@@ -151,13 +151,13 @@
 
 ## Lloyd Algorithm: Initialization
 
-![9]()
+![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/9.png)
 
-![10]()
+![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/10.png)
 
-![11]()
+![11](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/11.png)
 
-![12]()
+![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/12.png)
 
 ## K means++  [Arthur et al. ’07]
 
@@ -171,7 +171,7 @@
 
     * 选择c_i等于从分布中采样的数据点x0：
 
-      ![13]()
+      ![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/13.png)
 
       定理：O(log k)-初始化后立即逼近最佳
 
@@ -191,15 +191,15 @@
 
 ## K-means|| Initialization(k-方法初始化)
 
-![14]()
+![14](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/14.png)
 
-![15]()
+![15](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/15.png)
 
-![16]()
+![16](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/16.png)
 
-![17]()
+![17](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/17.png)
 
-![18]()
+![18](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/18.png)
 
 ## K-means||[Bahamani et al. '12']
 
@@ -214,7 +214,7 @@
 
 * Lloyd和K-means ++之间的插值
 
-  ​	![19]()
+  ​	![19](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/19.png)
 
 ## K-means||: Benefits
 
@@ -246,19 +246,19 @@
 
 分别如下图所示：
 
-![20]()
+![20](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/20.png)
 
-![21]()
+![21](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/21.png)
 
-![22]()
+![22](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/22.png)
 
 ## Overcoming K-means limitations
 
-![23]()
+![23](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/23.png)
 
-![24]()
+![24](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/24.png)
 
-![25]()
+![25](https://github.com/Qianlinnn/personal-study-zone/raw/master/SML_Sheffield/img/week4/25.png)
 
 ## Pre-processing & Post-processing
 
