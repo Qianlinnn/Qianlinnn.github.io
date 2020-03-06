@@ -58,9 +58,9 @@
 
 ## Hierarchical vs Partitional  Clustering 分层聚类与分区聚类
 
-* 分区聚类
+* Partitional  Clustering 分区聚类
   * 将一组数据对象简单地划分为不重叠的子集（群集），以便每个数据对象恰好在一个子集中
-* Hierarchical clustering分区聚类
+* Hierarchical clustering分层聚类
   * 一组嵌套的集群，组织成一个层次树
   * 树中的每个节点（集群）（叶节点除外）都是其子节点（子集群）的并集，树的根是包含所有对象的集群
 
