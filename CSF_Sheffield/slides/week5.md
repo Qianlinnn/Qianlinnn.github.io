@@ -20,26 +20,26 @@
 
 * A nonce (number once) 随机数（一次编号）是一个新的秘密，只有生成它的人才能知道
 
-  ![1]()
+  ![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/1.png)
 
-## NSPK: Correctness
+## NSPK: Correctness NSPK：正确性
 
 * Goal: Mutual Authenticity (Two-way Authentication) After executing the protocol  successfully目标：相互认证（双向认证）成功执行协议后
 * Alice and Bob can be sure to talk to each other (and not to somebody else)
 
-![2]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/2.png)
 
 ## NSPK: Lowe’s Attack Lowe的进攻
 
 协议通常很小且令人信服，并且常常是错误的
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/3.png)
 
 ## NSPK Lowe’s fix
 
 * Needham-Schroeder with Lowe’s fix. Needham-Schroeder的Lowe修复程序：
 
-![4]()
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/4.png)
 
 ## Definitions
 
@@ -68,13 +68,13 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
   * responder role B (Bob) 响应者角色B（鲍勃
   * server role S 服务器角色S
 * 在协议的具体执行中，角色由代理a.k.a 实体a,b,c（charly), s,i(intruder)入侵者
-* 我们使用i作为入侵者的名字。 重要提示：在我们的模型中，没有任何代理人知道我不诚实。
+* 我们使用i作为入侵者的名字。 重要提示：在我们的模型中，没有任何代理人知道i不诚实。
 * 协议的目的：
   * 在协议的末尾，k_(AB)应该被A和B（并且可能）还有 S（会被立即忘记的）所知晓，而不是其他组织。
   * A和B可以假设k_(AB)是新生成的。newly generated
 * 问题的规范化（稍后我们将考虑）：
   * 我们如何规范协议的步骤和目标？
-  * 我们如何规范化“知识”，“secrecy”，“newly”
+  * 我们如何规范化“knowledge”，“secrecy”，“newly”
 
 ### First Attempt: Specification 首次尝试：规格
 
@@ -85,12 +85,13 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
 * k_(AB)不包含任何关于A或者B的信息，他仅仅是代表会话密钥的位串的名称
 * 在我们检查该协议的（缺乏）安全性之前，请注意，这是一个非常不完整的协议规范
 
-![5]()
+![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/5.png)
 
-* 仅指定成功运行中传递的消息：
+* 仅在以下指定成功运行的过程中才能传递消息：
   * 没有收到格式错误的描述消息或根本没有收到消息的情况下的情况
   * 通常针对安全协议执行此操作，因为错误消息通常与安全无关（异常情况如何？）
 * 没有规定实体的内部动作
+  
   * 没有规定实体的内部动作，例如 “创建新的K_（AB）”并存储它是A和B的密钥
 * 隐式假设：A和B“知道”接收到的消息是协议的一部分
   * 通常会省略网络计算机能够跟踪特定协议运行进度所需的此类详细信息。
@@ -100,7 +101,7 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
 
 * 等效表示形式：Alice＆Bob表示法：
 
-  ![6]()
+  ![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/6.png)
 
   请注意，发送者/接收者的名称（例如，“ A” —>"B"）不是消息的一部分，也不是消息自动（安全地）到达目的地的情况。
 
@@ -121,7 +122,7 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
     * sk(B,S)是S与B的密钥
     * S加密加密信息
 * Problems:  
-  * Eavesdropping? No.
+  * Eavesdropping窃听? No.
 * 完美的密码学假设加密的消息只能由拥有解密所需密钥的合法收件人读取。 。 。
 
 ### Second Attempt: Problems 
@@ -143,7 +144,7 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
 
 => b认为他与D共享密钥，而实际上他与a共享密钥
 
-![7]()
+![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/7.png)
 
 * 这种攻击的结果将取决于使用该协议的情况，但是可能包括诸如b这样的行为，即向a泄露信息，而该信息本应仅与D共享。
 * 尽管我没有获得k_ab，但是我们仍然可以认为该协议已损坏，因为它不满足用户应该知道谁知道会话密钥的要求。
@@ -151,7 +152,7 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
 
 ###  Second Attempt: Another Attack
 
-![8]()
+![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/8.png)
 
 * i更改了从a到s的消息，以便s为a和i生成密钥k_（ai）并使用入侵者的密钥sk（i，s）对其进行加密
 * 由于a无法区分供其他主体使用的加密消息，因此她不会检测到更改
@@ -168,7 +169,7 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
 * 该协议已改进到入侵者无法通过窃听或更改诚实方之间发送的消息来对其进行攻击的程度
 * 但是，即使现在该协议仍不足以在正常操作条件下提供安全性
 
-![9]()
+![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/9.png)
 
 ### Third Attempt: Problem
 
@@ -189,7 +190,7 @@ Examples: Entity or message authentication, key establishment, integrity,  timel
   * 通过安全性假设4，i 可以被认为知道k_ab'的值
   * 因此当a完成与b的协议，i能够解密接下来用k_ab'加密的后续信息，或者插入或者更改被k_ab'保护的信息的完整性
 
-![10]()
+![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/10.png)
 
 * 即使i没有得到k_ab'的值，重播攻击仍然可以被视为成功的
   * i 已经成功的让a和b接受了一个老的会话密钥
@@ -210,7 +211,7 @@ Definition: A nonce (“a number used only once”) is a  random value generated
   * 在N_A中没有任何内容可以标识谁创建了它
   * 因此我们也要写N_A 或者认知更好的N_1 或N1
 
-![11]()
+![11](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/11.png)
 
 * 如果B的加密密钥包含在A的消息的加密部分中，则A可以确保它是最新的
 * 令人信服的是，A可能会将这种保证传递给B通过另一种方式
@@ -227,7 +228,7 @@ Definition: A nonce (“a number used only once”) is a  random value generated
 * 由于可以预期入侵者知道旧会话密钥的值，因此这种假设是不现实的
 * i 通过伪造成a并且说明b使用老的密钥 k_ab'
 
-![12]()
+![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/12.png)
 
 ### Fifth Attempt 
 
@@ -235,7 +236,7 @@ Definition: A nonce (“a number used only once”) is a  random value generated
 * 现在，协议由B发起，后者先将其随机数N_B发送给A
 * A添加了她的随机数N_A并将两者都发送给S，S现在可以在A和B的单独消息中返回K_AB，它们各自的接收者可以将其验证为最新
 
-![13]()
+![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/13.png)
 
 ### Fifth Attempt: Observations
 
@@ -283,7 +284,7 @@ Message concatenation(邮件串联): M1, M2, M3
 
 * Fundamental event 是主体之间的沟通
 
-  ![14]()
+  ![14](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/14.png)
 
 * A 和 B叫做 roles
 
@@ -301,7 +302,7 @@ Message concatenation(邮件串联): M1, M2, M3
 
 * 典型的协议描述结合了prose(正常文字)，数据类型规范，各种图表，特殊符号和消息序列，例如
 
-  ![15]()
+  ![15](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/15.png)
 
 * 它们通常包括有关该协议的属性以及为何应保留的非正式声明
 * What does a message A ⟶ B:M actually mean?
@@ -309,7 +310,7 @@ Message concatenation(邮件串联): M1, M2, M3
 
 ### Protocol Execution(协议执行)
 
-![16]()
+![16](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/16.png)
 
 * 生成随机数NA，将其与名称连接，并使用pk（B）加密
 * Receive a message M:
@@ -357,7 +358,7 @@ Security depends on the difficulty of computing the discrete logarithm of an  ex
 
 * Prevention: authenticate the half keys, e.g., with digital signatures预防：例如使用数字签名对半键进行身份验证
 
-  ![17]()
+  ![17](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/17.png)
 
 * 今天，许多协议都基于Diffie-Hellman，这不是一个坏主意！
 
@@ -365,15 +366,15 @@ Security depends on the difficulty of computing the discrete logarithm of an  ex
 
 * Server-based protocol providing authenticated key distribution (with key  authentication and key freshness) but without entity authentication or key  confirmation 基于服务器的协议，提供经过身份验证的密钥分发（具有密钥身份验证和密钥新鲜度），但没有实体身份验证或密钥确认
 
-  ![18]()
+  ![18](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/18.png)
 
 ### Type Flaw Attacks: The Otway-Rees Protocol (2/2)
 
-* ![19]()
+* ![19](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/19.png)
 
 i 将消息1的一部分重播为消息4（省略了步骤2和3）
 
-![20]()
+![20](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week5/20.png)
 
 ## Conclusion
 

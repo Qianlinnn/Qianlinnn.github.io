@@ -14,19 +14,19 @@
 
 ### Formal Methods
 
-![1]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week6/1.png)
 
 ### Overview
 
-![2]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week6/2.png)
 
 ### Alice & Bob (AnB) Notation:  Message Sequence Charts Alice和Bob（AnB）表示法：消息序列图
 
-![3]()
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week6/3.png)
 
 ### A Formal Alice & Bob (AnB) Language 正式的爱丽丝与鲍伯（AnB）语言
 
-![4]()
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week6/4.png)
 
 Role Scripts
 
@@ -38,7 +38,7 @@ Role Scripts
 
 ### Overview
 
-![5]()
+![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week6/5.png)
 
 ### Danny Dolev & Andrew C. Yao
 

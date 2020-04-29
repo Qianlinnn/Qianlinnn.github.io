@@ -4,11 +4,11 @@
 
 * 公钥密码术出生于1975年5月，是两个问题的孩子：密钥分发问题和签名问题。 该发现不是解决方案，而是认识到可以完全解决两个问题，每个问题从定义上看都无法解决，并且这两个问题的解决方案都在一个软件包中。
 
-![1]()
+![1](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/1.png)
 
 对称钥匙就是每对用户之间都有单独的密钥，所以是n(n-1)/2
 
-![2]()
+![2](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/2.png)
 
 非对称钥匙就是每个用户有个私钥。所以是n个
 
@@ -16,13 +16,15 @@
 
 ## The digital signature problem
 
+![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/3.png)
+
 * problem: 如何知道我们的数据来源于一个特定的实体呢
   * Public-key cryptography支持知道和向证明人证明 —> The non repudiation property不可否认属性
 
 ## Digital signature requirements
 
 * 签名在authentication和non repudiation方面是基础的
-* Nomenclature and set-up
+* Nomenclature and set-up 命名和设置
   * M 是一个可以被用来标记的信息集
   * S 是标记的基本元素集合，如： n-bit 字符串
   * S_A:M —> S 就是一个对实体A的签名转换过程
@@ -31,7 +33,7 @@
 
 ## Digital signature Scheme
 
-![4]()
+![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/4.png)
 
 * Signing procedure(签署程序): A创造了一个m∈M的签名通过：
   * 计算 s = S_A(m)并且传输数据对(m,s)
@@ -48,11 +50,11 @@
   * 让(e,d)成为一个公共密钥加密模式的钥匙对
   * 定义标记方程S_A成为D_d 如 s = D_d(m)
   * 将V_A按以下定义：
-    * ![5]()
+    * ![5](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/5.png)
 
-## 实施数字签名(2/2)
+## 实施数字签名(2/2)![image-20200320101856660](C:\Users\90512\AppData\Roaming\Typora\typora-user-images\image-20200320101856660.png)
 
-![6]()
+![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/6.png)
 
 * 为了防止伪造，标记信息通常是一个固定的结构，如：
   * 信息的名称是它的发件人
@@ -84,24 +86,24 @@
 * 现在：
 
   * 任何实体，例如Bob现在可以检查证书以获取Alice的公钥，并将其视为有效。
-  * Alice也刻意同样类似地得到Bob的公钥K_B
+  * Alice也可以同样类似地得到Bob的公钥K_B
 
 * 因此，CA可以帮助建立相互信任
 
 ## PKI services and components
 
-![7]()
+![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/7.png)
 
 PKI服务：
 
-* 链接公钥到了一个实体(certificates)
-* 关键生命周期管理（密钥吊销，恢复，更新)
+* Linking public keys to entities链接公钥到了一个实体(certificates)
+* Key life-cycle management关键生命周期管理（密钥吊销，恢复，更新)
 
 PKI 组件：
 
-* CA:
+* Certification Authority（认证机构） CA:
   * 创建证书并将其发布在路径中(directory)。
-  * 在路径中维护证书吊销列表（CRL）。
+  * Maintains a Certificate Revocation List在路径中维护证书吊销列表（CRL）。
   * CRL由单个客户端或验证服务积极检查。CRL checked actively by single clients or by validation services.
   * 备份某些密钥（用于密钥恢复或托管）
 * Directory(路径)
@@ -111,7 +113,7 @@ PKI 组件：
 * Registration Authority(RA)注册机构
   * 管理注册用户和颁发证书的过程。
   * 确保正确的用户识别
-* Clients: PKI的不同用途，例如 身份验证（单向，两向或三向），签名的文档和交易。
+* Clients: different uses of a PKI, e.g. authentication (one-way, two-way, or three-way), signed documents and transactions.PKI的不同用途，例如 身份验证（单向，两向或三向），签名的文档和交易。
 
 ## Certificates
 
@@ -119,7 +121,7 @@ PKI 组件：
 
 * Example: 颁发机构CA，标记了一个身份到主体的证书(ALice),对应的公钥就是K_Alice,以及发布或到期时间等信息
 
-  ​	![8]()
+  ​	![8](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/8.png)
 
 * 要验证证书，实体Bob必须获得发行者的公钥，并使用它来解密哈希并检查证书中的数据。
 
@@ -138,7 +140,7 @@ PKI 组件：
 * Signature Algorithm Identifier (AI)算法的签名算法标识符（AI）和任何参数，用于对证书进行签名
 * Issuer name (CA)颁发者名称（CA）是创建并签署此证书的CA的X.500名称。如果X.500名称已用于不同实体，则为可选的字符串发行者唯一标识符。
 
-![9]()
+![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/9.png)
 
 * Period of validity (T_A)有效期
 * Subject name 是证书所引用的用户的名称（即，其公钥经过认证的用户）。 如果X.500名称已被不同实体重用，则可选的位字符串主题唯一标识符。
@@ -148,8 +150,8 @@ PKI 组件：
 ### The X.509 Certificate
 
 * The certificate of user A issued (并且标记为 K_CA(-1))b CA is:
-  * ![10]()
-* 为了验证 CA = <<A>>, 并且验证生成的用户公共密钥，Bob会为特定的签名算法获取的公共密钥，并解密签名。
+  * ![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/10.png)
+* 为了验证 CA = <<A>>, 并且验证生成的用户公共密钥，Bob会为特定的签名算法从CA获取的公共密钥，并解密签名。
 * 然后，Bob使用签名字段中的信息重新计算其他字段中的哈希值。 如果它与解密后的签名相匹配，则在发行人的公钥正确的情况下，签名有效。
 * 然后，Bob检查有效期，以确保证书是最新的。
 
@@ -160,7 +162,7 @@ PKI 组件：
   * 如果所有用户都订阅相同的CA，则该CA具有共同的信任。
   * 所有用户证书可以放在同一目录中，以供所有用户访问。
 
-  ![11]()
+  ![11](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/11.png)
 
 ### Trust models: Hierarchical Trust(分层信任)
 
@@ -170,7 +172,7 @@ PKI 组件：
   * 这些证书可以本身对证书进行认证，也可以对在某个链上仍对其他证书进行认证的证书进行认证。
   * 通过从其证明者向后追溯到其他证明者来验证叶证书的有效性，直到找到直接受信任的根证书为止。
 
-![12]()
+![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/12.png)
 
 ### Hierarchical models and Cross-Certification 层次模型和交叉认证
 
@@ -202,7 +204,7 @@ A certificate is trusted directly, or trusted in some  chain going back to a dir
   * 随着这一过程的进行，它建立了信任网络
 * Any PGP user can validate another user’s public key  certificate, but such a certificate is only valid to  another user if he recognizes the validator as a  trusted introducer.任何PGP用户都可以验证另一个用户的公钥证书，但是只有当另一个用户将验证者识别为可信的介绍者时，该证书才对该一个用户有效。
   * 即 您相信我的观点，即只有当您认为我是值得信赖的介绍者时，其他人的密钥才有效
-  * 否则，我对其他键的有效性的看法不重要。
+  * 否则，我对其他密钥的有效性的看法不重要。
 
 ### PKI – Key/Certificate Revocation PKI –密钥/证书吊销
 
@@ -225,11 +227,11 @@ A certificate is trusted directly, or trusted in some  chain going back to a dir
 * the issuer’s name, 发行人的名字，
 * the date the CRL was created CRL的创建日期
 * the date the next CRL is scheduled to be  issued 计划发布下一个CRL的日期
-* an entry for each revoked certificat 每个已撤销证书的条目
+* an entry for each revoked certificate 每个已撤销证书的条目
 
 每次证书验证都需要咨询CRL
 
-![13]()
+![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week4/13.png)
 
 ### PKI – Key Recovery PKI –密钥恢复
 
