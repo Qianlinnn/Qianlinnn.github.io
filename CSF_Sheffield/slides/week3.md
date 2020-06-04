@@ -17,14 +17,14 @@
   * RSA(Rivest-Shamir-Adleman)
     * 非常著名，而且广泛部署
     * 基于难以分解的大数
-  * Elliptic Curve Cryptography 椭圆曲线密码学 
-    *  著名的替代品，“轻量级”
-    * 基于有限域上椭圆曲线的代数结构（寻找最短向量）
-  * NTRUE加密
-    * 基于将截断的多项式环中的某些多项式分解为系数非常小的两个多项式的商的困难
-* 公钥加密是建立在两个密钥的基础上：e 和 d
-  * 设计架构是为了给定一对(E_e, D_d)
-    * 知道E_e,这是不可行的
+  * Elliptic Curve Cryptography 椭圆曲线密码学 Elliptic Curve Cryptography
+    *  著名的替代品，“轻量级” Famous alternative, “lightweight”
+    * 基于有限域上椭圆曲线的代数结构（寻找最短向量) Based on the algebraic structure of elliptic curves over finite fields (finding shortest vector)
+  * NTRUE加密 NTRUEncrypt
+    * 基于将截断的多项式环中的某些多项式分解为系数非常小的两个多项式的商的困难 Based on the difficulty of factoring certain polynomials in a truncated polynomial ring into a quotient of two polynomials having very small coefficients
+* 公钥加密是建立在两个密钥的基础上：e 和 d Public-key cryptography is based on two keys: 𝑒 and d
+  * 设计架构是为了给定一对(E_e, D_d) Schema is designed so that, given a pair (𝐸_𝑒,𝐷_𝑑),
+    * 只知道E_e,这是没用的
     * 给定的c ∈ C 是找到一个m ∈ M, 其重E_e(m) = c
   * 这意味着从e推出d是不可行的
   * E_e组成了一个单向陷门函数，陷门是d
@@ -143,92 +143,97 @@
 * 实际操作的注意项
   * 通常对称加密会计算的不那么复杂(刚快)
   * 真实世界系统经常建立在
-    * 非对称密钥对作为长期密钥
-    * symmetric session key 对称会话密钥 
-    * 长期密钥被用来加密会话密钥
+    * 非对称密钥对作为长期密钥 Asymmetric keys-pair as long-term key
+    * symmetric session key 对称会话密钥  Symmetric session key
+    * 长期密钥被用来加密会话密钥 Long-term key is used for encrypting session key
 
 ## 推荐：对称和非对称加密
 
 * 对称
-  * 56bits可通过蛮力破解，例如against DES
-  * NIST: 直到2013年，至少具有128位的三重DES（具有112个）和AES被认为是安全的
-  * BSI：到2021年，至少具有128位的AES被认为是安全的
-  * 通常建议使用256位AES
+  * 56bits可通过蛮力破解，例如against DES 56 bits are crackable by brute force, e.g., against DES
+  * NIST: 直到2013年，至少具有128位的三重DES（具有112个）和AES被认为是安全的 NIST: Triple DES (with 112) and AES with at least 128 bits considered secure until 2013
+  * BSI：到2021年，至少具有128位的AES被认为是安全的 • BSI: AES with at least 128 bits considered secure until 2021
+  * 通常建议使用256位AES Usually 256-bit AES is recommended
 * 非对称
-  * 1024位RSA密钥被认为等效于80位对称密钥
-  * NIST：2048 RSA被认为在2030年之前都是安全的
-  * BSI：3072 RSA被认为在2021年之前是安全的
-  * 椭圆曲线密码学使用较短的密钥（例如256位）显得安全
-  * 假设没有相关的数学突破
+  * 1024位RSA密钥被认为等效于80位对称密钥 1024-bit RSA keys considered equivalent to 80-bit symmetric keys
+  * NIST：2048 RSA被认为在2030年之前都是安全的 NIST: 2048 RSA considered secure until 2030
+  * BSI：3072 RSA被认为在2021年之前是安全的 • BSI: 3072 RSA considered secure until 2021
+  * 椭圆曲线密码学使用较短的密钥（例如256位）显得安全 Elliptic-curve cryptography appears secure with shorter keys, e.g., 256-bits
+  * 假设没有相关的数学突破 Assuming no relevant math breakthroughs
 
 ## 攻击加密：攻击加密系统的示例
 
-* 加密方案并非牢不可破
-* 为了实现安全的系统，了解一个攻击系统的方式将很有帮助
-* 警告：以下幻灯片仅简要介绍了攻击加密系统的主题（使用一些选定的示例攻击）
+* 加密方案并非牢不可破 Cryptographic schemes are not unbreakable
+* 为了实现安全的系统，了解一个攻击系统的方式将很有帮助 To implement systems secure, it is helpful to have an idea how one attacks systems
+* 警告：以下幻灯片仅简要介绍了攻击加密系统的主题（使用一些选定的示例攻击） • The following slides provide only a glimpse into the subject of attacking crypto systems (using a few selected example attacks)
 
 ​	
 
 ## 攻击加密： Ciphertext-only Attack(COA)纯密文攻击
 
-* 攻击者只能访问的攻击
-  * 密文
-  * 并且通常尝试获取对纯文本的访问
+* 攻击者只能访问的攻击  An attack in which the attacker has only access to
+  * 密文 Cipher text
+  * 并且通常尝试获取对纯文本的访问 And, usually, tries to gain access to the plain text
 * 方法：
-  * 蛮力(测试大多数或者大部分的组合)
-    * 可以基于预先计算的数据（例如，哈希表或更有效的彩虹表）
-  * 统计分析
-* 加密算法的标准化流程
-  * 审核过程通常需要几年
-  * 对大量密文进行详尽的测试，以统计是否偏离随机噪声
+  * 蛮力(测试大多数或者大部分的组合) Brute force (testing of all/most combinations)
+    * 在小消息（无熵）上成功运行 Works successfully on small message sizes (lack of entropy)
+    * 可以基于预先计算的数据（例如，哈希表或更有效的彩虹表） • Can be based on pre-computed data (e.g., hash tables or, more efficient, rainbow tables)
+  * 统计分析 Statistical analysis 
+* 加密算法的标准化流程 Standardization processes for crypto algorithms:
+  * 审核过程通常需要几年 Vetting process usually takes several years
+  * 对大量密文进行详尽的测试，以统计是否偏离随机噪声 Exhaustive testing of large quantities of ciphertext for any statistical departure from random noise
 
 ## Attacking Crypto: Known Plaintext Attack (KPA)  攻击加密：已知的纯文本攻击（KPA)
 
-* 发动的攻击只能是攻击者能访问的：
-  * 纯文本（可能是消息的一部分）
-  * 纯文本的密文（或包含纯文本的消息）
-  * 并尝试获得对加密的密钥得到进入权限
-* 选择明文攻击
-  * 攻击者可以为任意明文生成密文
-* 今天的情况
-  * 目前尚不知道现代密码（例如AES）会容易受到KPA的影响
-  * PKZIP流密码的旧版本容易遭受KPA的攻击
+* 发动的攻击只能是攻击者能访问的： An attack in which the attacker has only access to
+  * 纯文本（可能是消息的一部分） A plain text (could be a part of a message)
+  * 纯文本的密文（或包含纯文本的消息） The cipher text of the plain text (or a message containing the plain text)
+  * 并尝试获得对加密的密钥得到进入权限 And tries to gain access to the encryption key
+* 选择明文攻击 Chosen-plaintext attack
+  * 攻击者可以为任意明文生成密文 The attacker can generate the ciphertext for arbitrary plaintexts
+* 今天的情况 The situation today
+  * 目前尚不知道现代密码（例如AES）会容易受到KPA的影响  Modern ciphers (e.g., AES) are currently not known to be susceptible to KPA
+  * PKZIP流密码的旧版本容易遭受KPA的攻击  Old versions of the PKZIP stream cipher are prone to KPA
 
 ## Attacking Crypto: Birthday Attack
 
-* 理念：
-  * 利用生日悖论
-    * 在一个有23人的房间中，两个人在同一天生日的概率大于0.5
-    * 在100人的房间中，概率为0.9999997
-  * 重新讨论哈希码
-    * 哈希是将可变长度的消息m映射到固定长度的哈希码的函数
-    * 对于长度为l的哈希码，可能有(2^I)个哈希码
-      * 通常：m比l长得多，因此将一个以上的m映射到相同的哈希码
-    * 生日悖论：
-      * 如果生成2^(I/2)消息，则发生碰撞的可能性大于0.5
+* 理念： Idea
+  * 利用生日悖论 • Exploit the Birthday Paradox:
+    * 在一个有23人的房间中，两个人在同一天生日的概率大于0.5  In a room with 23 people, the probability that two people have their birthday on the same day is larger than 0.5
+    * 在100人的房间中，概率为0.9999997  In a room with 100 people, the probability is 0.9999997
+  * 重新讨论哈希码 Hash codes revisited
+    * 哈希是将可变长度的消息m映射到固定长度的哈希码的函数  A hash is a function that maps a message m of variable length to a fixed length hash code
+    * 对于长度为l的哈希码，可能有(2^I)个哈希码  For hash codes of length l, there are 2l possible hash codes
+      * 通常：m比l长得多，因此将一个以上的m映射到相同的哈希码 Usually: m much longer than l, thus more than one m is mapped to the same hash code
+    * 生日悖论：Birthday paradox
+      * 如果生成2^(I/2)消息，则发生碰撞的可能性大于0.5 If we generate 2l/2 message, the probability for a collision is larger than 0.5
+  * A Letter in 2^37 Variations 2^37个变化中的字母
+    * It is, e.g., not difficult to  generate 2^37 documents  that convey the same  message 例如，不难生成传达相同信息的2^37个文档
+    * Could be used for  forging digital signatures   可用于伪造数字签名
+    * Might be even easier for  real hash algorithms  (e.g., old members of  the MD family) 对于真正的散列算法（例如，MD系列的老成员），可能会更容易
 
 ## Attacking Crypto: Random Number Generator Attack: 攻击加密：随机数生成器攻击
 
-* 观察结果
-  * 许多密码方案的安全性都取决于强大的随机数生成器，
-    * 即无法与将“噪声”与不可预测的随机数序列区分开
-  * 人类不利于生成随机数（请考虑密码...）
-  * 计算机：许多伪随机数生成器（PRNG）都可以轻松预测
-    * 例如，请勿将java.util.Random用于安全性至关重要的实现
-  * 用于与安全相关的实现的随机生成器应包括来自物理测量和/或硬件设备的熵
+* 观察结果 Observations
+  * 许多密码方案的安全性都取决于强大的随机数生成器，The security of many cryptographic schemes relies on strong random number generators
+    * 即无法与将“噪声”与不可预测的随机数序列区分开 i.e., sequences of unpredictable random numbers that cannot be distinguished from “noise”
+  * 人类不利于生成随机数（请考虑密码...） Humans are bad in generating random numbers (think of passwords . . . )
+  * 计算机：许多伪随机数生成器（PRNG）都可以轻松预测 Computers as well: many pseudo-random-number generators (PRNG) can easily predicted
+    * 例如，请勿将java.util.Random用于安全性至关重要的实现 e.g., do not use java.util.Random for security critical implementations
+  * 用于与安全相关的实现的随机生成器应包括来自物理测量和/或硬件设备的熵 Random generators for security-relevant implementations should include entropy from physical measurements and/or hardware devices
 * 知名的案例：
   * Netscape种子
-    * Netscape的SSL实施的早期版本使用PRNG，该PRNG使用以下三个输入作为种子：时间，进程ID和父进程ID
-  * Java类SecureRandom可能会在Android上的比特币实现中用于ECDSA的k个随机数值生成冲突（2013年）
+    * Netscape的SSL实施的早期版本使用PRNG，该PRNG使用以下三个输入作为种子：时间，进程ID和父进程ID Early versions of Netscape’s SSL implementation used a PRNG that used three inputs as seeds: The time of day, the process ID, and the parent process ID
+  * Java类SecureRandom可能会在Android上的比特币实现中用于ECDSA的k个随机数值生成冲突（2013年）  The Java class SecureRandom could generate collisions in the k nonce values used for ECDSA in implementations of Bitcoin on Android (2013)
 
 ## Attacking Crypto: Other Attacks
 
-* Chosen-ciphertext attack 
-* Chosen-key attack 
-* Denial-of-Service (DoS) 
-* Man-in-the-middle (MiM) attack 
-* Meet-in-the-middle attack 
-* Replay attack
+* Chosen-ciphertext attack  选择密文攻击
+* Chosen-key attack  选择键攻击
+* Denial-of-Service (DoS)  服务拒绝（DoS）
+* Man-in-the-middle (MiM) attack  中间人（MiM）攻击
+* Meet-in-the-middle attack  中间相遇攻击
+* Replay attack 重播攻击
 
 ## 物理攻击
 
@@ -236,17 +241,17 @@
 
 ## probing(探测)
 
-* 加强加密实施
-  * 特殊技术，使攻击者难以到达加密芯片的电路，电线
-  * 应该以某种方式进行设计，以便即使在多重探测的情况下，攻击也仍然足够困难
-    * 取决于应用程序和所需的安全级别
+* 加强加密实施 Harden the crypto implementation
+  * 特殊技术，使攻击者难以到达加密芯片的电路，电线 Special techniques to make it difficult for the attacker to reach the crypto chip’s circuitry, wires
+  * 应该以某种方式进行设计，以便即使在多重探测的情况下，攻击也仍然足够困难 Should be designed in a way so that even under the aspect of multiple probing, attacks would still be difficult enough
+    * 取决于应用程序和所需的安全级别 Depends on application and the required security level
 
 ## Fault Injection(故障注入)
 
-* 单个和多个比特攻击
-* 复杂度随着被攻击比特数量的增加而增加
-* 可以考虑使用传感器来提供低级别的安全性
-* 更好：在实施过程中牢记故障
+* 单个和多个比特攻击  Single and multiple bit attacks
+* 复杂度随着被攻击比特数量的增加而增加 Complexity increases as the number of attacked bits increase
+* 可以考虑使用传感器来提供低级别的安全性 Sensors can be considered for providing low-level security
+* 更好：在实施过程中牢记故障 Better: Keep faults in mind during implementation
 
 ## Side-Channel Attacks(侧通道攻击)
 
@@ -259,40 +264,40 @@
 * Power Analysis
 
   * Simple power analysis（SPA）简单功率分析
-    * 随时间可视化电源轨迹来阐述功率分析
+    * Visual interpreting of power traces over time 随时间可视化电源轨迹来阐述功率分析
   * Differential power analysis(差分功率分析)
     * Advanced form of power analysis (功率分析的高级形式)
-    * 攻击者可以通过对从多个密码操作中收集的数据进行统计分析，来计算密码计算中的中间值
+    * Attacker can compute the intermediate values within cryptographic computations via statistical analysis of data collected from multiple cryptographic operations攻击者可以通过对从多个密码操作中收集的数据进行统计分析，来计算密码计算中的中间值
   * Multiple order attacks: 多阶攻击
-    * 二阶，高阶等
-    * 包括多个数据源和不同的时间偏移
-    * 更困难的攻击
+    * Second-order, higher-order, etc.二阶，高阶等
+    * Multiple data sources and different time offsets included 包括多个数据源和不同的时间偏移
+    * More difficult attacks 更困难的攻击
 
   ## 对策
 
   * SPA:
-    * 避免条件分支泄漏秘密
-    * 隐藏冗余操作
+    * 避免条件分支泄漏秘密  Avoid conditional branches leaking secrets
+    * 隐藏冗余操作 Redundant operations, hiding
   * DPA
-    * 最有效和广泛使用：隐藏
-      * 使用随机且变化的值使秘密蒙蔽
-      * 隐藏统计信息中的秘密
+    * 最有效和广泛使用：隐藏   Most effective and widely-used: Masking
+      * 使用随机且变化的值使秘密蒙蔽  For blinding the secrets with random and changing values
+      * 隐藏统计信息中的秘密  Hides the secret from statistics
 
   
 
   ## Reverse Engineering: 逆向工程
 
-  * 尝试了解电路及其行为
+  * 尝试了解电路及其行为 Tries to understand circuit and its behaviour
 
-  * 对策
-    * 使其难以进入
-    * 使用特殊逻辑隐藏电路行为
+  * 对策 Countermeasures
+    * 使其难以进入 Make it difficult to access
+    * 使用特殊逻辑隐藏电路行为 Using special logic to hide circuit behaviour
 
   ## Conclusion
 
-  * 正确实施加密很难
-  * 乍看之下很多安全的实现实际上都是不安全的
-  * 通常很难对密码方案的“心脏”进行攻击
+  * 正确实施加密很难 Implementing crypto correctly is hard
+  * 乍看之下很多安全的实现实际上都是不安全的  Many implementations that look secure on the first sight are actually insecure
+  * 通常很难对密码方案的“心脏”进行攻击   Attacks on the “heart” of cryptographic schemes are usually dificult
 
 
 

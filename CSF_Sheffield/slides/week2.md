@@ -2,7 +2,7 @@
 Cryptography is an enabling technology
 密码学是一门 使能技术：使能技术是指一项或一系列的、应用面广、具有多学科特性、为完成任务，而实现目标的技术。
 
-# Clarifying notation
+# Clarifying notation澄清符号
 * Cryptography: the science of secret writing 
   密码学：秘密写作的科学
 * Steganography(隐写术): the science of hiding messages in other messages or images
@@ -45,9 +45,9 @@ encryption: 加密  decryption:解密
     * 密钥*e*和*d* 组成了一个密钥对， 有时候用(*e*,*d*)表示
         * 它们可以是相同的(如 对称加密模式的对称密钥)
     * 构建一个加密模式要求一个固定的消息空间*M*, 一个密文空间*C*，和一个钥匙空间*K*, 以及加密转换{𝐸_𝑒|𝑒 ∈ 𝐾}和一个对应的解密转换{𝐷_𝑑|𝑑 ∈ 𝐾} 
-    
+  
     ![3](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/3.png)
- 
+
 ## Codes
 * 代表完整信息的字符串符号
 * 最简单和最早的密码学之一
@@ -58,15 +58,18 @@ encryption: 加密  decryption:解密
 * 令𝐾为字母上所有排列的集合。
 * 对每一个𝑒 ∈ K， 我们定义了一个加密转换E_e在字符串 m = m_1m_2...m_n∈*M* 当作
         
+    
         E_e(m) = e(m_1)e(m_2)...e(m_n) = c_1c_2...c_n = c
 * 为了解密c，计算所有的反排列 d = e^(-1)and
         
+    
         D_d(c) = d(c_1)d(c_2)...d(c_n) = m
-        
+    
 * E_e是一个简单替换密码或者单字母替换密码
- 
+
 ## Examples of Substitution Cipher
 * D(KHOOR ZRUOG) = HELLO WORLD
+   
    * Caesar cipher [凯撒密码](https://baike.baidu.com/item/%E6%81%BA%E6%92%92%E5%AF%86%E7%A0%81)
 * D(Zl anzr vf Nqnz) = My name is Adam
    * [ROT13](https://zh.wikipedia.org/wiki/ROT13)
@@ -74,13 +77,13 @@ encryption: 加密  decryption:解密
 * D(2-25-5 2-25-5) = BYE BYE
    * Alphanumeric
    * Substitute numbers for letters
-    
+   
 * Security of Substitution Ciphers
    * Key spaces are typically huge(密钥空间非常巨大)
        * 26个字母 ——> 26!个可能的密钥
    * Trivial to crack using frequency analysis(letters, diagraphs,etc.)使用频率分析（字母，有向图等）可轻松破解
    * 英语的频率基于数据挖掘书籍/文章具体频率如下图所示(意思是我们可以统计一本书里的各个单词的出现频率来根据这个表来从密文逆推出明文)
-    
+   
    ![4](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/4.png)   
    
    * 很容易应用，除了一些短的，非典型的文本
@@ -88,6 +91,7 @@ encryption: 加密  decryption:解密
 
 ## Polyalphabetic Substitution Ciphers(多字母替代密码)
 * 创意(Leon Alberti)
+    
     * 使用映射族隐蔽分发
     
 * 多字母替代密码是在字母表A上具有块长度𝑡的块密码，其中：
@@ -97,12 +101,12 @@ encryption: 加密  decryption:解密
 
 * Vigenere Cipher [维吉尼亚密码](https://zh.wikipedia.org/wiki/%E7%BB%B4%E5%90%89%E5%B0%BC%E4%BA%9A%E5%AF%86%E7%A0%81)
     * 密钥由有序的数字e = e_1,...,e_t给出：其中：
-        
+      
         ![6](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/6.png)
       在一个大小为n的字母表上定义一个排列
       
     * Example: English(n=26), with k = 3, 7, 10
-        
+      
             m = THI SCI PHE RIS CER TAI NLY NOT SEC URE
         
        then
@@ -110,17 +114,18 @@ encryption: 加密  decryption:解密
             E_e(m) = WOS VJS SOO UPC FLB WHS QSI QVD VLM XYO
             
             加密方式是k有个几个数，就设置k个字母为一组，然后分别对当前得字母往后移动k_i个位置，就得到了加密得密文
-            
+    
 * One-time pads(Vernam Cipher) 一次性密码本 弗纳姆演算法
+    
     * 一次性密码本是一个定义在{0，1}得密码
 * 一个信息m_1...m_n 是被一个二进制密钥字符串k_1...k_n加密的
-   
+  
    ![7](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/7.png)
    
     Example： 
         
       c = m ⊕ k = (010111)_2 ⊕ (110010)_2 = (100101)_2
-      
+   
     ⊕ 代表的是对应的位数相加，但不会影响到下一位去加1
 
 * 因为每一个密钥顺序都是等可能的，因此纯文本也是   
@@ -132,7 +137,7 @@ encryption: 加密  decryption:解密
 * 对于块长度t， 让k成为{1,...t}的排列的集合，对每一个e ∈ K 和 m ∈ M
 
         E_e(m) = m_e(1) m_e(2)... m_e(t)
-        
+    
 * 所有这些转换的集合称为换位密码
 * 为了解密 c = c_1 c_2 ... c_t计算
 
@@ -146,12 +151,12 @@ encryption: 加密  decryption:解密
 * Example
   
   ![9](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/9.png)
- 
+
  该示例中C是加密文字，图表是明文，加密方法是将明文按照列的方向由左向右进行抄写。解密方法就是知晓排列模式，按从左到右的顺序往下读
  下面的密码棒同理，按照上面所述的方法去左右到右解读，翻译为：这个密码棒(scytale)是换位密码
- 
+
 # Composite Ciphers: 复合密码
- 
+
 * Ciphers based on either subsitutions or transpositions are insecure
   
    基于替换字母或改变位置是不安全的
@@ -170,7 +175,7 @@ encryption: 加密  decryption:解密
   制造置换和换位的密码链组合
     "S-Boxes"混淆了输入位
     "P-Boxes"通过S-Box输入分散了位置
-    
+  
   ![10](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/10.png)
   
 * Substitution:Each binary bit of the ciphertext should depend on several parts of the key, obscuring the connections between the two
@@ -191,7 +196,7 @@ encryption: 加密  decryption:解密
   
   排列：每个明文数字（位）影响许多密文数字，或者每个密文数字受许多明文数字影响
     * Linear operation 
-    
+  
      线性操作
     * Diffuses substituted bits across S-Box inputs 
       
@@ -243,17 +248,19 @@ encryption: 加密  decryption:解密
 
 * Different design strategies(structures) exists
   不同的设计策略(结构)存在
- 
+
  ![12](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/12.png)
- 
+
 * 为区块加密设计结构
     * Feistel Network[费斯妥密码具体见构造细节部分](https://zh.wikipedia.org/wiki/%E8%B4%B9%E6%96%AF%E5%A6%A5%E5%AF%86%E7%A0%81)
     * Substitution-Permutation Network(SPN) 置换排列网络
+    
   
   **上述两个是常见的设计策略**
     * Addition-Rotation-XOR(ARX) 加法-异或运算
     * Adhoc[拉丁文，表示特定制作的](https://zh.wikipedia.org/wiki/Ad_hoc)
-    
+  
+
 费斯妥密码如图
 
 ![13](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/13.png)
@@ -275,6 +282,7 @@ SPN
     * Extensions like Triple-DES (TDES) used to overcome short  key-length 诸如Triple-DES（TDES）之类的扩展用于克服较短的密钥长度
     * TDES is the only secure version now TDES是目前唯一的安全版本
     
+
 **Note: [TDES三重数据加密法详细说明](https://zh.wikipedia.org/wiki/3DES)**
       
 ![15](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/15.png)
@@ -299,7 +307,7 @@ Cryptography, p278
     * 通过2^112次暴力查找操作
 * DES不应用于新应用程序（至少应为TDES）
 * 继承者 Advanced Encryption Standard(AES)
-    
+  
 ## Advanced Encryption Standard(AES) [高级加密标准](https://zh.wikipedia.org/wiki/%E9%AB%98%E7%BA%A7%E5%8A%A0%E5%AF%86%E6%A0%87%E5%87%86)
 * SPN(置换排列网络)
 * 128-bit block size, 128/192/256-bit key sizes(key scheduling)
@@ -311,6 +319,7 @@ Cryptography, p278
 * Widely-used in many applications
   在许多应用广泛使用
   
+
 ![17](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/17.png)
 
 ## Lightweight cipher example: present cipher(轻量级密码示例: x现在的密码)
@@ -335,11 +344,11 @@ Cryptography, p278
   
 * 示例（纵向冗余检查）：  
 
-     * Given 𝑚𝑚 blocks of 𝑛-bit input 𝑏_1, … , 𝑏_𝑚, form the 𝑛 -bit checksum 𝑐 from the bitwise xor of
+     * Given 𝑚 blocks of 𝑛-bit input 𝑏_1, … , 𝑏_𝑚, form the 𝑛 -bit checksum 𝑐 from the bitwise xor of
 every block, i.e., (for 1 ≤ 𝑖 ≤ 𝑛)
 
      给定n位输入b1,...bn的代码块m个， 从每个块的按位异或形成n位效验之和c
-      
+     
     ![19](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/19.png)
     
      * Cryptographic techniques can be seen as a refinement of checksum techniques to  handle an active forger 
@@ -366,46 +375,47 @@ every block, i.e., (for 1 ≤ 𝑖 ≤ 𝑛)
    * 对密码p， 在密码文件里存储了h(p)
    * 要求只有一个原像抗性
    * 经常于其他salts 组合，保存为(s, h(s,p))
-  
+
 ## Constructing a Cryptographic Hash Function
 * 可以使用块链接技术（Rabin 1978）
     * 将信息分成固定大小的块,b_1,...,b_n
     * 使用对称的加密算法 e.g. DES
                         
-    ![20](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/20.png)
-
+    
+![20](https://github.com/Qianlinnn/personal-study-zone/raw/master/CSF_Sheffield/img/week2/20.png)
+    
 * 现代算法（例如SHA-1 / 2/3，MD4，MD5等）更加复杂，并使用专门设计的功能
     * 许多冲突结果（例如Crypto 2004）动摇了对其性能的信心
     * 基于哈希的现代应用程序仍然“看起来”安全，例如，尚无前映像攻击（SHA-1除外）
     
     
     
-  
     
-        
+    
+    ​    
    
     
     
      
- 
 
 
 
 
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        
+​        

@@ -5,7 +5,7 @@
 * Finding security vulnerabilities 查找安全漏洞
   * Static application security testing (SAST) 静态应用程序安全测试（SAST）
 
- ![1]()
+ ![1](https://github.com/Qianlinnn/Qianlinnn.github.io/raw/master/CSF_Sheffield/img/week8/1.png)
 
 * Is everything secure?
   * 此工具称为“代码保证工具（cat）” This tool is called “Code Assurance Tool (cat)”  
@@ -17,7 +17,7 @@
     * Local issues (no data-flow dependency), e.g.,   本地问题（不依赖数据流），例如
       * Insecure functions   不安全的功能
       * Secrets stored in the source code 秘密存储在源代码中
-    * Data-flow related issues, e.g.,
+    * 数据流相关问题Data-flow related issues, e.g.,
       * Cross-site Scripting (XSS)  跨站点脚本（XSS）
       * Secrets stored in the source code 秘密存储在源代码中
 
@@ -28,7 +28,7 @@
 * Finding security vulnerabilities  查找安全漏洞
   * Dynamic application security testing (DAST) 动态应用程序安全测试（DAST）
 
-![2]()
+![2](https://github.com/Qianlinnn/Qianlinnn.github.io/raw/master/CSF_Sheffield/img/week8/2.png)
 
 * Sniffers and Proxies 嗅探器和代理
   * Tools for inspecting network traffic 检查网络流量的工具
@@ -57,7 +57,7 @@
   * Static approaches (i.e., SAST) 静态方法（即SAST）
   * Dynamic approaches (i.e., IAST or DAST) 动态方法（即IAST或DAST）
 
-![3]()
+![3](https://github.com/Qianlinnn/Qianlinnn.github.io/raw/master/CSF_Sheffield/img/week8/3.png)
 
 * Combining Multiple Security Testing Methods and Tools: Different Risk 结合多种安全测试方法和工具：不同的风险
 
@@ -77,7 +77,7 @@
 * 所有结果都是真实的问题吗？
   * Both static and dynamic tools suffer from false positives (and false negatives)静态和动态工具都遭受假正确（和误错误）
 
-![4]()
+![4](https://github.com/Qianlinnn/Qianlinnn.github.io/raw/master/CSF_Sheffield/img/week8/4.png)
 
 * An informal definition 非正式定义
   * If a static analysis tool reports a finding 如果静态分析工具报告了发现
@@ -99,7 +99,7 @@
   * Missing support for complete syntax (parsing errors) 缺少对完整语法的支持（分析错误）
     * Report to tool vendor! 向工具供应商报告！
 * Configuration: Lacking knowledge of insecure frameworks,  配置：缺乏不安全框架的知识，
-  * e.g.,  Insecure sinks (output) and sources (input) 例如，•不安全的接收器（输出）和源（输入）
+  * e.g.,  Insecure sinks (output) and sources (input) 例如，不安全的接收器（输出）和源（输入）
     * Improve configuration! 改善配置！
 * Unknown security threats: For us, e.g.,  未知的安全威胁：对我们来说，例如
   * XML verb tampering   XML动词篡改
@@ -199,7 +199,7 @@
   * Completeness (you can measure how much of the specification has been covered) 完整性（您可以衡量已经涵盖了多少规范）
   * Can handle complex inputs (e.g., that require matching checksums) 可以处理复杂的输入（例如，需要匹配的校验和）
 * Disadvantages:
-  * Building a generator can be a complex problem 建造发电机可能是一个复杂的问题
+  * Building a generator can be a complex problem 建造生成器可能是一个复杂的问题
   * Specification needs to be available 需要特定的配置规格才能用
 
 ## Advanced Fuzzing Techniques 先进的模糊技术
@@ -231,7 +231,7 @@
 
 ## Types of Third-party Software
 
-![5]()
+![5](https://github.com/Qianlinnn/Qianlinnn.github.io/raw/master/CSF_Sheffield/img/week8/5.png)
 
  ## Vulnerabilities in Components 组件中的漏洞Heartbleed
 
@@ -245,7 +245,7 @@
 
 ## What to do?
 
-![6]()
+![6](https://github.com/Qianlinnn/Qianlinnn.github.io/raw/master/CSF_Sheffield/img/week8/6.png)
 
 * There seem to be an easy fix 似乎很容易解决
   * Always use the latest version, i.e., update your dependencies as quickly as you can! 始终使用最新版本，即，尽快更新依赖项！
